@@ -7,4 +7,3 @@ An app to meet runners near you.
 :warning: **NB:** no need to create a project with ``$ cordova create MyApp``, all file are already in the repo.
 
 [Cordova android platform guide](http://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html)
-
