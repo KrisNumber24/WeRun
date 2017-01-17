@@ -2,7 +2,7 @@
 
 An app to meet runners near you.
 
-## For the collaborators
+## To the collaborators
 1. [Install Cordova](http://cordova.apache.org/#getstarted)   
 :warning: **NB:** no need to create a project with ``$ cordova create MyApp``, all file are already in the repo.
 
