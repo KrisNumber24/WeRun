@@ -44,4 +44,50 @@
         <a href ='#/recherche'>RECHERCHER</a>
       </div>
     </div>
+
+    <div class ='row'>
+      <div class="col col-50 col-offset-25 text-center">
+        <button class="button button-block button-small button-positive">
+          {{notification}} demande
+        </button>
+      </div>
+    </div>
+
+    <div class ='row'>
+      <div class="col col-80 col-offset-10 text-center">
+        <button class="button button-block button-small button-outline icon-left button-calm">
+          <img class="button_img icon" ng-src = "img/edit.png">
+          Créer un itineraire
+        </button>
+      </div>
+    </div>
+
+    <div class ="row " ng-repeat='i in itineraires'>
+      <div class="card itinerary_cards">
+        <div class="item item-image">
+          <img src="{{i.img}}">
+        </div>
+        <div class ="row overlay_cards">
+          <div class ="col col-50">
+            <p><strong>{{i.date}}, à {{i.heure}}</strong><br>
+            <strong>{{i.lieu}}</strong><br>
+            Distance : {{i.distance}}km<br>
+            Dénivelé : {{i.denivele}}%</p>
+          </div>
+          <div class="col col-50" ng-if="!i.demande">
+            <p class="small_paragraph" ng-if="!i.demande">Personne n’a encore répondu à votre proposition </p>
+          </div>
+          <div class="col col-50" ng-if="i.demande" ng-repeat="d in demandes">
+            <div class="row">
+              <div class="col col-40">
+                <img ng-src="{{d.img}}" ></img>
+              </div>
+              <div class="col col-60">
+                <p class="small_paragraph"><strong>{{d.prenom}} {{d.nom}}</strong> souhaite vous rejoindre</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>

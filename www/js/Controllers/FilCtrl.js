@@ -33,6 +33,8 @@ WRCtrl.controller('FilCtrl', function ($scope) {
     session : 2
   }]
 
+  $scope.notification = 2;
+
   $scope.news = [
   {
     date :'Auj 21h55',
