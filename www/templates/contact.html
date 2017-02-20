@@ -1,0 +1,80 @@
+<ion-view view-title="fil">
+
+  <header>
+    <div class = "row">
+      <div class="bar bar-header bar-dark">
+        <img id="logo" ng-src = "img/logo.png"></img>
+      </div>
+    </div>
+    <div class ="row" id = "Menu">
+      <div class="col col-20">
+        <a class="button button-clear" href ='#/fil'>
+          <img ng-src = "img/icone_actu_grey.png">
+        </a>
+      </div>
+      <div class="col col-20">
+        <a class="button button-clear" href ='#/itineraire'>
+          <img ng-src = "img/icone_itineraire_grey.png">
+        </a>
+      </div>
+      <div class="col col-20">
+        <a class="button button-clear" href ='#/contact'>
+          <img ng-src = "img/icone_contact_color.png">
+        </a>
+      </div>
+      <div class="col col-20">
+        <a class="button button-clear" href ='#/tchat'>
+          <img ng-src = "img/icone_tchat_grey.png">
+        </a>
+      </div>
+      <div class="col col-20">
+        <a class="button button-clear" href ='#/parametre'>
+          <img ng-src = "img/icone_parameters_grey.png">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Partie scrollable -->
+  <ion-content scroll="true">
+    <div class = "row" id ="background-min">
+      <div class="item-input-inset search_container">
+        <label class="item-input-wrapper" id="search_bar">
+          <img id="search_icon" ng-src="img/icone_search.png" class="icon placeholder-icon"/>
+          <input type="search" placeholder="Rechercher quelqu'un...">
+        </label>
+      </div>
+    </div>
+
+    <div id="Suggestion" class="text-center">
+      <p>Ils courent prés de chez vous...</p>
+
+      <div class="row">
+        <div class="col-20"></div>
+        <div ng-repeat="s in suggest" class="col">
+          <img class = "miniature" ng-src={{s.photo}}>
+        </div>
+        <div class="col-20"></div>
+    </div>
+    </div>
+    <div class="row amis" ng-repeat="a in amis">
+      <div class = "col col-20">
+        <img class ="medium" ng-src={{a.photo}}>
+      </div>
+      <div class = "col col-50">
+        <h4>{{a.prenom}} {{a.nom}}</h4>
+        <p>{{a.coureur}} <br> <strong>{{a.session}}</strong> sessions</p>
+      </div>
+      <div class = "col col-10 col-offset-10">
+        <img class = "smallicon" ng-src="img/icone_actu_grey.png">
+      </div>
+      <div class = "col col-10">
+        <img class = "smallicon" ng-src="img/icone_tchat_grey.png">
+      </div>
+
+    </div>
+    </div>
+
+
+
+  </ion-content>
