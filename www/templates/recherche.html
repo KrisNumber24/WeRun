@@ -44,4 +44,81 @@
         <a href ='#/recherche'>RECHERCHER</a>
       </div>
     </div>
+    <div class = "row">
+      <div class="col col-80 col-offset-10">
+        <div class="list list-inset">
+          <label>
+            <input type="text" placeholder="Ville">
+          </label>
+        </div>
+        <div class ="row">
+          <div class ="col col-50">
+            <div class="list list-inset">
+              <label>
+                <input type="text" placeholder="Distance min">
+              </label>
+            </div>
+          </div>
+          <div class="col col-50">
+            <div class="list list-inset">
+              <label>
+                <input type="text" placeholder="Dénivelé">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class ="row">
+      <div class="col col-40 col-offset-10">
+        <ion-list>
+          <h4>Journées</h4>
+          <ion-checkbox class="checkbox-royal" ng-model="filter.lun">Lundi</ion-checkbox>
+          <ion-checkbox class="checkbox-royal" ng-model="filter.mar">Mardi</ion-checkbox>
+          <ion-checkbox class="checkbox-royal" ng-model="filter.mer">Mercredi</ion-checkbox>
+          <ion-checkbox class="checkbox-royal" ng-model="filter.jeu">Jeudi</ion-checkbox>
+          <ion-checkbox class="checkbox-royal" ng-model="filter.ven">Vendredi</ion-checkbox>
+          <ion-checkbox class="checkbox-royal" ng-model="filter.sam">Samedi</ion-checkbox>
+          <ion-checkbox class="checkbox-royal" ng-model="filter.dim">Dimanche</ion-checkbox>
+        </ion-list>
+      </div>
+      <div class="col col-40">
+        <ion-list>
+          <h4>Horaires</h4>
+          <ion-checkbox class="checkbox-balanced" ng-model="filter.a">6h</ion-checkbox>
+          <ion-checkbox class="checkbox-balanced" ng-model="filter.b">8h</ion-checkbox>
+          <ion-checkbox class="checkbox-balanced" ng-model="filter.c">10h</ion-checkbox>
+          <ion-checkbox class="checkbox-balanced" ng-model="filter.d">12h</ion-checkbox>
+          <ion-checkbox class="checkbox-balanced" ng-model="filter.e">14h</ion-checkbox>
+          <ion-checkbox class="checkbox-balanced" ng-model="filter.f">16h</ion-checkbox>
+          <ion-checkbox class="checkbox-balanced" ng-model="filter.g">18h et +</ion-checkbox>
+        </ion-list>
+      </div>
+    </div>
+    <div class ="row">
+      <div class="col col-80 col-offset-10">
+        <ion-list>
+          <h4>Partenaire</h4>
+          <div class="row no-margin" >
+            <div class="col col-50">
+              <ion-checkbox class="checkbox-royal" ng-model="filter.homme">Homme</ion-checkbox>
+            </div>
+            <div class="col col-50">
+              <ion-checkbox class="checkbox-royal" ng-model="filter.femme">Femme</ion-checkbox>
+            </div>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+    <div class ='row'>
+      <div class="col col-80 col-offset-10 text-center">
+        <button class="button button-block button-small button-outline icon-left button-calm">
+          <img class="button_img icon" ng-src = "img/icone_search.png">
+          Rechercher
+        </button>
+      </div>
+    </div>
+
+
+
   </ion-content>

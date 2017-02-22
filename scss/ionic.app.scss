@@ -338,3 +338,75 @@ i
   font-size:12px;
   margin:0px!important;
 }
+
+.list-inset
+{
+  margin: 15px 0px -10px 0px !important;
+  border-left: solid 2px $vert;
+  padding-left: 9px!important;
+}
+
+input
+{
+  height: 25px!important;
+}
+
+.item-checkbox
+{
+  background-color: transparent!important;
+  padding-bottom: 0px!important;
+  font-size: 14px !important;
+  min-height: 30px!important;
+}
+
+.checkbox-royal input:before,
+.checkbox-royal .checkbox-icon:before {
+border-color: $violetdark;
+}
+
+.checkbox-royal input:checked:before,
+.checkbox-royal input:checked + .checkbox-icon:before {
+background: $violetdark;
+border-color: $violetdark;
+}
+
+.checkbox-balanced input:before,
+.checkbox-balanced .checkbox-icon:before {
+border-color: $vert;
+}
+
+.checkbox-balanced input:checked:before,
+.checkbox-balanced input:checked + .checkbox-icon:before {
+background: $vert;
+border-color: $vert;
+}
+
+.checkbox-icon:before{
+  width:80%;
+  height:80%;
+}
+
+.checkbox-icon::after
+{
+  top: 22%;
+  left: 15%;
+  width: 12px;
+}
+
+.checkbox
+{
+  padding: 16px 0px 0px 14px!important;
+}
+
+.list h4
+{
+  color:$grisdark!important;
+  margin-left:20px!important;
+  font-weight:bold!important;
+}
+
+.no-margin
+{
+  margin-top:-10px!important;
+  margin-left:-10px!important;
+}
