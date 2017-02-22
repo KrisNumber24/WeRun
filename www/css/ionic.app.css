@@ -10018,16 +10018,31 @@ i {
   width: 100% !important;
   height: 200px;
   padding: 5px;
-  top: calc(65% - 10px);
+  top: calc(57% - 10px);
   left: calc(0%); }
+
+#valid_overlay {
+  position: absolute;
+  top: calc(35% - 10px);
+  left: calc(52%);
+  width: 10% !important; }
+
+#refus_overlay {
+  position: absolute;
+  top: calc(35% - 10px);
+  left: calc(64%);
+  width: 10% !important; }
 
 .overlay_cards p {
   color: white;
-  margin: 0px !important; }
+  margin-top: 0px !important; }
 
 .small_paragraph {
   font-size: 12px;
-  margin: 0px !important; }
+  margin-left: -15px !important; }
+
+.ask_img {
+  margin-left: -15px !important; }
 
 .list-inset {
   margin: 15px 0px -10px 0px !important;

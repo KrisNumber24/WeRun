@@ -75,14 +75,22 @@
             Dénivelé : {{i.denivele}}%</p>
           </div>
           <div class="col col-50" ng-if="!i.demande">
-            <p class="small_paragraph" ng-if="!i.demande">Personne n’a encore répondu à votre proposition </p>
+            <div class="row">
+              <div class = "col col-20">
+              </div>
+              <div class="col col-80">
+                  <p class="small_paragraph" ng-if="!i.demande">Personne n’a encore répondu à votre proposition </p>
+              </div>
+            </div>
           </div>
           <div class="col col-50" ng-if="i.demande" ng-repeat="d in demandes">
             <div class="row">
-              <div class="col col-40">
-                <img ng-src="{{d.img}}" ></img>
+              <div class="col col-45">
+                <img class="ask_img" ng-src="{{d.img}}" ></img>
+                <a ng-click=""><img class="ask_img" id="valid_overlay" ng-src="img/icone_validation.png" ></img></a>
+                <a ng-click=""><img class="ask_img" id="refus_overlay" ng-src="img/icone_refus.png" ></img></a>
               </div>
-              <div class="col col-60">
+              <div class="col col-50">
                 <p class="small_paragraph"><strong>{{d.prenom}} {{d.nom}}</strong> souhaite vous rejoindre</p>
               </div>
             </div>
