@@ -9938,7 +9938,7 @@ p {
   background-color: white !important; }
 
 .card img {
-  padding: 8px !important; }
+  padding: 8px; }
 
 #like {
   position: absolute;
@@ -10020,6 +10020,12 @@ i {
   padding: 5px;
   top: calc(57% - 10px);
   left: calc(0%); }
+
+.card_img_small {
+  box-shadow: unset !important;
+  padding: 1px !important;
+  margin-top: -10px;
+  margin-left: -15px; }
 
 #valid_overlay {
   position: absolute;
