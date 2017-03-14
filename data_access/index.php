@@ -75,6 +75,9 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
       $query['data']
      );
   }
+  elseif ($query['requestType'] == 'transaction') {
+    $db->transaction($queries);
+  }
 
   // $db->select("werun_runner",   // Base table
   //   [],                         // Joined tables

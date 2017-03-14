@@ -71,6 +71,64 @@
         $stmt->execute($requestData["request_datas"]);
     }
 
+    public function transaction($queries) {
+      $pdoDb = new PDO('mysql:host=' . DB_HOST . ';' .
+        'dbname=' . DB_NAME . ';' .
+        'charset=utf8mb4',
+        DB_USER,
+        DB_PASSWD
+      );
+
+      try {
+        $pdoDb->beginTransaction();
+
+        $transactionQuery;
+        foreach ($queries as $key => $query) {
+          if ($query['requestType'] == 'select') {
+
+            if (!isset($query['joins'])) {
+              $query['joins'] = [];
+            }
+            if (!isset($query['fields'])) {
+              $query['fields'] = ['*'];
+            }
+            if (!isset($query['where'])) {
+              $query['where'] = [];
+            }
+            if (!isset($query['groupBy'])) {
+              $query['groupBy'] = [];
+            }
+            if (!isset($query['order'])) {
+              $query['orderBy'] = [];
+            }
+
+            $transactionQuery = $this->buildSelectRequestStr(
+              $query['primaryTable'],
+              $query['joins'],
+              $query['fields'],
+              $query['where'],
+              $query['groupBy'],
+              $query['orderBy']
+            );
+          }
+          elseif ($query['requestType'] == 'insert') {
+            $transactionQuery = $this->buildInsertRequestStr(
+              $query['table'],
+              $query['data']
+            );
+          }
+
+          $pdoDb->query($transactionQuery);
+        }
+
+        $pdoDb->commit();
+      }
+      catch(Exception $e) {
+        $pdoDb->rollback();
+        exit();
+      }
+    }
+
     private function buildSelectRequestStr(
       $primaryTable,
       $joins,
