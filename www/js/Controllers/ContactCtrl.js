@@ -1,4 +1,4 @@
-WRCtrl.controller('ContactCtrl', function ($scope) {
+WRCtrl.controller('ContactCtrl', function ($scope, $http) {
 
   $scope.$on('$ionicView.enter', function(e) {
     console.log("ContactCtrl fonctionne !");
@@ -29,51 +29,38 @@ WRCtrl.controller('ContactCtrl', function ($scope) {
     photo : 'img/more.png'
   }]
 
-  $scope.amis = [
-  {
-    prenom : 'Julie',
-    nom : 'Dubois',
-    age : 19,
-    coureur :'Performer',
-    interet : ['Discussion','Bien être'],
-    photo : 'img/julie.png',
-    session : 45
-  },
-  {
-    prenom : 'François',
-    nom : 'Grondin',
-    age : 39,
-    coureur :'Débutant',
-    interet : ['Discussion','Rencontres'],
-    photo : 'img/françois.png',
-    session : 6
-  },
-  {
-    prenom : 'Arthur',
-    nom : 'Petit',
-    age : 28,
-    coureur :'Performer',
-    interet : ['Challenge'],
-    photo : 'img/arthur.png',
-    session : 36
-    },
-    {
-      prenom : 'Emilie',
-      nom : 'Girard',
-      age : 22,
-      coureur :'Expérimenté',
-      interet : ['Discussion','Bien-être'],
-      photo : 'img/emilie.png',
-      session : 18
-    },
-    {
-    prenom : 'Léo',
-    nom : 'Martin',
-    age : 23,
-    coureur :'Expérimenté',
-    interet : ['Discussion','Bien être'],
-    photo : 'img/leo.png',
-    session : 12
-  }]
+  $scope.amis = [];
+
+  friendsRequest = {
+    requestType: 'select',
+    primaryTable: 'werun_runner',
+    joins: [
+      {
+        table: 'werun_session_user',
+        on: 'werun_session_user.user_id = werun_runner.id'
+      }
+    ],
+    fields: [
+      'first_name as nom',
+      'name as prenom',
+      'age',
+      'runner_type as coureur',
+      'count(werun_session_user.user_id) as session'
+    ],
+    orderBy: ['name', 'ASC'],
+    where: [
+      "werun_session_user.user_id IS NULL",
+      "or werun_session_user.user_id IS NOT NULL"
+    ],
+    groupBy: [
+      "werun_runner.name"
+    ]
+  };
+
+  $http.post('http://localhost/WeRunDB/', JSON.stringify(friendsRequest))
+  .then(function(response) {
+    console.log(response);
+    $scope.amis = response.data;
+  })
 
 })
