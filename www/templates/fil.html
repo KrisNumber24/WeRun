@@ -55,14 +55,40 @@
       </div>
     </div>
 
+    <div class ='row'>
+      <div class="col col-50 col-offset-25 text-center">
+        <button class="button button-block button-small button-positive">
+          {{notification}} nouveautés
+        </button>
+      </div>
+    </div>
+
     <div class ="row " ng-repeat='n in news'>
       <div class="card news-container" >
         <div class="item item-body news">
           <p id="date_texte">{{n.date}}</p>
           <p>{{n.texte}}</p>
           <img class="full-image" ng-src={{n.image}}>
-          <i class="icon ion-heart" id="like" ng-click="AddLike()"> {{n.like}}</i>
         </div>
+        <div class ="row info-itin" ng-if="n.dist">
+          <div class="col col-50">
+            <p><strong>Distance :</strong> {{n.dist}} km</p>
+            <p><strong>Durée :</strong> {{n.temps}}</p>
+            <p><strong>Vitesse :</strong> {{n.vitesse}} km/h</p>
+          </div>
+          <div class="col col-50">
+            <p><strong>Accompagnateurs</strong></p>
+            <div class="row">
+            <div class="col col-33" ng-repeat="a in news[$index].accompagnateurs">
+              <img class="card_img_small" ng-src="{{a.img}}"></img>
+            </div>
+          </div>
+          </div>
+        </div>
+        <p>
+          <a href="#" class="subdued"><i class="icon ion-heart"  ng-click="AddLike()"> {{n.like}}</i></a>
+          <a href="#" class="subdued">{{n.comments}} commentaire(s)</a>
+        </p>
       </div>
     </div>
 

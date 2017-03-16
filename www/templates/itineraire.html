@@ -36,12 +36,66 @@
 
   <!-- Partie scrollable -->
   <ion-content scroll="true">
-    <div class = "row" id ="background-min">
+    <div class = "row tabs-striped tabs-top tabs-color-light" id ="background-min">
       <div class="col col-50 text-center selected">
-        <a href ='#/itineraire'>MES ITINERAIRES</a>
+        <a class="tab-item active" href ='#/itineraire'>MES ITINERAIRES</a>
       </div>
       <div class="col col-50 text-center">
-        <a href ='#/recherche'>RECHERCHER</a>
+        <a class= "tab-item" href ='#/recherche'>RECHERCHER</a>
+      </div>
+    </div>
+
+    <div class ='row'>
+      <div class="col col-50 col-offset-25 text-center">
+        <button class="button button-block button-small button-positive">
+          {{notification}} demande
+        </button>
+      </div>
+    </div>
+
+    <div class ='row'>
+      <div class="col col-80 col-offset-10 text-center">
+        <button class="button button-block button-small button-outline icon-left button-calm">
+          <img class="button_img icon" ng-src = "img/edit.png">
+          Créer un itineraire
+        </button>
+      </div>
+    </div>
+
+    <div class ="row " ng-repeat='i in itineraires'>
+      <div class="card itinerary_cards">
+        <div class="item item-image">
+          <img src="{{i.img}}">
+        </div>
+        <div class ="row overlay_cards">
+          <div class ="col col-50">
+            <p><strong>{{i.date}}, à {{i.heure}}</strong><br>
+            <strong>{{i.lieu}}</strong><br>
+            Distance : {{i.distance}}km<br>
+            Dénivelé : {{i.denivele}}%</p>
+          </div>
+          <div class="col col-50" ng-if="!i.demande">
+            <div class="row">
+              <div class = "col col-20">
+              </div>
+              <div class="col col-80">
+                  <p class="small_paragraph" ng-if="!i.demande">Personne n’a encore répondu à votre proposition </p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-50" ng-if="i.demande" ng-repeat="d in demandes">
+            <div class="row">
+              <div class="col col-45">
+                <img class="ask_img" ng-src="{{d.img}}" ></img>
+                <a ng-click=""><img class="ask_img" id="valid_overlay" ng-src="img/icone_validation.png" ></img></a>
+                <a ng-click=""><img class="ask_img" id="refus_overlay" ng-src="img/icone_refus.png" ></img></a>
+              </div>
+              <div class="col col-50">
+                <p class="small_paragraph"><strong>{{d.prenom}} {{d.nom}}</strong> souhaite vous rejoindre</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </ion-content>

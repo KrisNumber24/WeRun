@@ -33,24 +33,45 @@ WRCtrl.controller('FilCtrl', function ($scope) {
     session : 2
   }]
 
+  $scope.notification = 2;
+
   $scope.news = [
   {
     date :'Auj 21h55',
     texte : 'Félicitations ! Vous venez de terminer votre scéance de running',
     image : 'img/map1.png',
-    like : 4
+    like : 4,
+    comments : 5,
+    dist : 15,
+    temps : "1h10",
+    vitesse : 9,
+    accompagnateurs : [
+    {
+      prenom : 'Hannah',
+      img :"img/hannah.png"
+    },
+    {
+      prenom : "Jade",
+      img :"img/jade.png"
+    },
+    {
+      prenom: "Arthur",
+      img : "img/arthur.png"
+    }]
   },
   {
     date :'Hier 15h55',
     texte : 'Troisiéme démarque sur les soldes, -30% sur les chaussures ASICS',
     image : 'img/pub.png',
-    like : 28
+    like : 28,
+    comments : 10,
   },
   {
     date :'Lun 26 Jan 10h21',
     texte : 'Julien Martin a publié un selfie avec vous et Antoine Pommier ! ',
     image : 'img/selfie.png',
-    like : 11
+    like : 11,
+    comments : 1,
   }]
 
 
