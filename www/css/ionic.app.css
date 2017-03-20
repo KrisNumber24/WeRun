@@ -10102,3 +10102,38 @@ input {
 .no-margin {
   margin-top: -10px !important;
   margin-left: -10px !important; }
+
+.tchat_field {
+  border-bottom: 2px solid #EFEFEF !important; }
+
+.non_lu {
+  font-weight: bolder !important; }
+
+.item-toggle {
+  background-color: #EFEFEF !important; }
+
+.toggle.toggle-calm input:checked + .track {
+  border-color: #515DA9 !important;
+  background-color: #515DA9 !important; }
+
+.item-grislight {
+  background-color: #EFEFEF !important; }
+
+ul h3 {
+  color: #25B89A !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  padding: 0px !important;
+  margin-bottom: -5px !important;
+  margin-top: 10px !important;
+  margin-left: 15px !important; }
+
+#button-left {
+  margin-left: 28px !important;
+  margin-top: 25px !important;
+  margin-bottom: 10px !important;
+  margin-right: 10px !important; }
+
+#button-right {
+  margin-top: 25px !important;
+  margin-bottom: 10px !important; }

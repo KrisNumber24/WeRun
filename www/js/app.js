@@ -58,6 +58,11 @@ WRApp.config(function($stateProvider, $urlRouterProvider){
     templateUrl: "templates/recherche.html",
     controller: "RechercheCtrl"
   })
+  .state('discussion',{
+    url: "/discussion",
+    templateUrl: "templates/discussion.html",
+    controller: "TchatCtrl"
+  })
   //Route par defaut -> dans le cas ou le chemin spécifié est invalide, ou a l'ouverture de l'application quand aucun chemin n'est specifié l'application renverra par defaut à cet endroit.
   $urlRouterProvider.otherwise('fil');
 })

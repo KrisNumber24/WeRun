@@ -36,7 +36,32 @@
 
   <!-- Partie scrollable -->
   <ion-content scroll="true">
-    <div class = "row">
-      <p>Changer les parametres</p>
+  <div class ="row">
+    <div class ="col col-100">
+      <button class="button button-small button-positive" id="button-left">
+        Se deconnecter
+      </button>
+      <button class="button button-small button-positive" id="button-right">
+        Supprimer son compte
+      </button>
+      <ul class="list" >
+        <h3>Personnel</h3>
+        <li ng-repeat="p in personnalList" class="item item-grislight">
+          {{p.text}}
+        </li>
+      </ul>
+      <ul class="list">
+        <h3>Préférences</h3>
+        <li ng-repeat="s in settingsList" class="item item-toggle">
+           {{s.text}}
+          <label class="toggle toggle-calm">
+            <input ng-checked="s.checked"type="checkbox">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </li>
+      </ul>
     </div>
+  </div>
   </ion-content>

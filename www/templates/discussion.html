@@ -44,13 +44,5 @@
         </label>
       </div>
     </div>
-      <div class="list">
-        <a ng-repeat ="d in discussion" class="item item-avatar tchat_field" ng-click="getChat($index)">
-          <img src={{d.photo}}>
-          <h2 ng-if="!d.lu" class="non_lu">{{d.prenom}}</h2>
-          <h2 ng-if="d.lu">{{d.prenom}}</h2>
-          <p ng-if="!d.lu" class="non_lu">{{d.phrase}}</p>
-          <p ng-if="d.lu">{{d.phrase}}</p>
-        </a>
-    </div>
+    <h1>Discussion avec {{discussion[index_chat].prenom}}</h1>
   </ion-content>
