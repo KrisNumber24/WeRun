@@ -1,47 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript">
+    var map;
+    document.addEventListener("deviceready", function() {
+      var div = document.getElementById("map_canvas");
 
-    <link rel="manifest" href="manifest.json">
+      // Initialize the map view
+      map = plugin.google.maps.Map.getMap(div);
 
-    <!-- un-comment this code to enable service worker
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.log('Error', err));
-      }
-    </script>-->
+      // Wait until the map is ready status.
+      map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+    }, false);
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    function onMapReady() {
+      var button = document.getElementById("button");
+      button.addEventListener("click", onBtnClicked, false);
+    }
 
-    <!-- Utilisation de SASS -->
-    <link href="css/ionic.app.css" rel="stylesheet">
-
-
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/Controllers/MainCtrl.js"></script>
-    <script src="js/Controllers/FilCtrl.js"></script>
-    <script src="js/Controllers/ContactCtrl.js"></script>
-    <script src="js/Controllers/ItinCtrl.js"></script>
-    <script src="js/Controllers/TchatCtrl.js"></script>
-    <script src="js/Controllers/ParamCtrl.js"></script>
+    function onBtnClicked() {
+      map.showDialog();
+    }
+    </script>
   </head>
+  <body class="platform-android platform-cordova platform-webview">
+    <h3>PhoneGap-GoogleMaps-Plugin</h3>
+    <div style="width:100%;height:400px" id="map_canvas">
+    </div>
 
-  <body ng-app = "WeRun" ng-controller = "MainCtrl">
-      <ion-nav-view>
-        <!--Les differentes vues (templates) seront rendues ici-->
-      </ion-nav-view>
+    <button id="button">Full Screen</button>
+
+    <script type="text/javascript">
+
+    var map;
+    document.addEventListener("DOMContentLoaded", function() {
+    var div = document.getElementById("map_canvas");
+
+    // Initialize the map view
+    map = plugin.google.maps.Map.getMap(div);
+
+    console.log(map);
+
+    // Wait until the map is ready status.
+    map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+    }, false);
+
+    function onMapReady() {
+    var button = document.getElementById("button");
+    button.addEventListener("click", onBtnClicked);
+    }
+
+    function onBtnClicked() {
+
+    // Move to the position with animation
+    map.animateCamera({
+    target: {lat: 37.422359, lng: -122.084344},
+    zoom: 17,
+    tilt: 60,
+    bearing: 140,
+    duration: 5000
+    }, function() {
+
+    // Add a maker
+    map.addMarker({
+      position: {lat: 37.422359, lng: -122.084344},
+      title: "Welecome to \n" +
+             "Cordova GoogleMaps plugin for iOS and Android",
+      snippet: "This plugin is awesome!",
+      animation: plugin.google.maps.Animation.BOUNCE
+    }, function(marker) {
+
+      // Show the info window
+      marker.showInfoWindow();
+
+      // Catch the click event
+      marker.on(plugin.google.maps.event.INFO_CLICK, function() {
+
+        // To do something...
+        alert("Hello world!");
+
+      });
+    });
+    });
+    }
+    </script>
   </body>
 </html>

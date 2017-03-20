@@ -20,6 +20,9 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <vs:plugin name="plugin.google.maps">
+    <param name="API_KEY_FOR_ANDROID" value=" AIzaSyDpAJLppdatBn72Rb24RVIQkXtZoTURcP0 " />
+  </vs:plugin>
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
