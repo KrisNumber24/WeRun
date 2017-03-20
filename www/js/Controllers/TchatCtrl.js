@@ -1,6 +1,14 @@
-WRCtrl.controller('TchatCtrl', function ($scope) {
+WRCtrl.controller('TchatCtrl', function ($scope,$location) {
   $scope.$on('$ionicView.enter', function(e) {
     console.log("TchatCtrl fonctionne !");
+  })
+    $scope.index_chat = 0;
+    $scope.getChat= function(id) {
+      console.log(id);
+      $scope.index_chat=id;
+      $location.path('/discussion');
+
+    }
 
     $scope.discussion = [
     {
@@ -52,5 +60,4 @@ WRCtrl.controller('TchatCtrl', function ($scope) {
       phrase: "Non désolé, je peux vraiment pas demain",
       lu:true
     }]
-  })
 })

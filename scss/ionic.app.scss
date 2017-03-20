@@ -448,3 +448,44 @@ border-color: $vert;
 {
   font-weight:bolder!important;
 }
+
+.item-toggle
+{
+  background-color:$grislight!important;
+}
+
+.toggle.toggle-calm input:checked + .track
+{
+  border-color:$violetdark!important;
+  background-color: $violetdark!important;
+}
+
+.item-grislight
+{
+  background-color:$grislight!important;
+}
+
+ul h3
+{
+  color:$vert!important;
+  font-size:20px!important;
+  font-weight: bold!important;
+  padding:0px!important;
+  margin-bottom:-5px!important;
+  margin-top:10px!important;
+  margin-left:15px!important;
+}
+
+#button-left
+{
+  margin-left:28px!important;
+  margin-top:25px!important;
+  margin-bottom:10px!important;
+  margin-right:10px!important
+}
+
+#button-right
+{
+  margin-top:25px!important;
+  margin-bottom:10px!important;
+}

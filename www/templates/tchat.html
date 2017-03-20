@@ -45,7 +45,7 @@
       </div>
     </div>
       <div class="list">
-        <a ng-repeat ="d in discussion" class="item item-avatar tchat_field" href='#/discussion'>
+        <a ng-repeat ="d in discussion" class="item item-avatar tchat_field" ng-click="getChat($index)">
           <img src={{d.photo}}>
           <h2 ng-if="!d.lu" class="non_lu">{{d.prenom}}</h2>
           <h2 ng-if="d.lu">{{d.prenom}}</h2>
